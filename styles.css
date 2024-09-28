@@ -1,0 +1,243 @@
+body {
+  background-color: var(--bg-color);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  color: var(--color);
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+
+  --grid-template: repeat(3, var(--box-size));
+  --grid-size: max(300px, calc(100vw / 3));
+  --grid-gap: 15px;
+  --box-size: calc(var(--grid-size) / 3 - (var(--grid-gap) / 1.6));
+  --img-size: calc(var(--box-size) * 0.4);
+  --score-gap: 20px;
+  --font: "Eurostile", system-ui, -apple-system, sans-serif;
+  --font-300: 1.25rem;
+  --font-400: 1.375rem;
+  --font-500: 1.4rem;
+  --font-600: 1.625rem;
+  --font-size-btn: clamp(var(--font-300), 2vw, var(--font-500));
+  --font-size: clamp(var(--font-400), 2vw, var(--font-600));
+}
+
+body[dark] {
+  --bg-color: rgb(30, 30, 30);
+  --menu-color: rgba(30, 30, 30, 0.8);
+  --color: rgb(232, 232, 232);
+}
+
+body[light] {
+  --bg-color: rgb(232, 232, 232);
+  --menu-color: rgba(232, 232, 232, 0.8);
+  --color: rgb(30, 30, 30);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 50px;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--grid-size);
+  height: var(--grid-size);
+  background-color: var(--menu-color);
+  color: var(--color);
+  z-index: 100;
+}
+
+.menu__wrapper {
+  display: grid;
+  row-gap: 20px;
+}
+
+.menu__choose {
+  text-align: center;
+}
+
+.menu__button {
+  padding: 10px 15px;
+  font-family: var(--font);
+  font-size: var(--font-size-btn);
+  border-radius: 5px;
+  background: var(--color);
+  color: var(--bg-color);
+  cursor: pointer;
+  transition: opacity ease 0.3s;
+}
+@media (hover: hover) {
+  .menu__button:hover {
+    opacity: 0.7;
+  }
+}
+
+@media (hover: none) {
+  .menu__button:active {
+    opacity: 0.7;
+  }
+}
+
+.menu__result {
+  text-align: center;
+}
+
+.play-area {
+  position: relative;
+  background: var(--color);
+  border-radius: 30px;
+}
+
+.play-area__grid {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin-left: -1px;
+  margin-top: -1px;
+  grid-template-columns: var(--grid-template);
+  grid-template-rows: var(--grid-template);
+  gap: var(--grid-gap);
+  width: var(--grid-size);
+  height: var(--grid-size);
+}
+
+.play-area__boxes {
+  display: flex;
+  background: var(--bg-color);
+  height: var(--box-size);
+  width: var(--box-size);
+  border-radius: clamp(20px, 2vw, 30px);
+  align-items: center;
+  justify-content: center;
+}
+
+.play-area__boxes svg {
+  width: var(--img-size);
+  height: var(--img-size);
+}
+
+.sign-img {
+  display: none;
+  fill: var(--color);
+  stroke: var(--color);
+  -webkit-transition: all 50ms ease-out;
+  transition: all 50ms ease-out;
+}
+
+.sign-img[popped] {
+  width: calc(var(--img-size) * 2 - 1.5px);
+  height: calc(var(--img-size) * 2 - 1.5px);
+}
+
+.sign-img--cross {
+  stroke: none;
+}
+
+.score-bar {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  margin-top: -50px;
+  align-items: center;
+  justify-self: center;
+  gap: var(--score-gap);
+  flex-shrink: 0;
+}
+
+.score-bar__color-switcher {
+  position: absolute;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  right: 2%;
+  top: 2%;
+}
+
+.color-switcher__item {
+  width: min(40px, var(--img-size));
+  height: min(40px, var(--img-size));
+  stroke: var(--color);
+}
+
+body[dark] .item--moon {
+  display: none;
+}
+
+body[light] .item--sun {
+  display: none;
+}
+
+.score-bar__section {
+  display: flex;
+  gap: 20px;
+}
+
+.score {
+  gap: 55px;
+}
+
+.names p {
+  margin-top: 10px;
+}
+
+.names__signs {
+  display: grid;
+  justify-items: center;
+}
+.names__signs svg {
+  width: 25px;
+  height: 25px;
+  fill: var(--color);
+  stroke: var(--color);
+}
+
+@media (max-height: 450px) {
+  .main {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  body {
+    --score-gap: 10px;
+  }
+
+  .score-bar {
+    order: 1;
+    margin-top: 0;
+  }
+
+  .main {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .play-area {
+    order: 2;
+  }
+}
+
+@media (max-width: 1000px) {
+  .score-bar__color-switcher {
+    right: 5%;
+  }
+}
