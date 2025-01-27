@@ -17,17 +17,23 @@
 .header__contacts {
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: relative;
-  width: 45%;
-  padding-right: 23px;
-  padding-left: 64px;
+  width: 55%;
+  padding-left: 23px;
+  padding-right: 64px;
+  border-left: 1px solid var(--color-dark);
+  font-size: var(--font-1);
+
+  & a {
+    font-size: var(--font-1);
+  }
 }
 
 .contacts__name {
   line-height: 1;
   letter-spacing: 2.3px;
-  text-align: center;
+  text-wrap: nowrap;
+  /* text-align: center; */
 }
 
 .contacts__profession {
@@ -68,7 +74,8 @@
 
 .contacts__info {
   display: flex;
-  flex-flow: wrap;
+  flex-direction: column;
+  /* flex-flow: wrap; */
   justify-content: center;
   gap: 10px;
   margin-top: 21px;
@@ -106,6 +113,15 @@
   height: 18px;
 }
 
+.cake {
+  width: 18px;
+}
+
+.cake svg {
+  width: 24px;
+  height: 24px;
+}
+
 .phone {
   top: 2px;
 }
@@ -126,33 +142,36 @@
   height: 17.5px;
 }
 
-.download svg {
-  width: 18px;
-  height: 18px;
-}
-
-.header__info {
+.header__pic {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 55%;
-  padding-left: 23px;
-  padding-right: 64px;
-  border-left: 1px solid var(--color-dark);
+  width: 40%;
+  max-width: 350px;
+
+  padding-right: 23px;
+  padding-left: 64px;
 }
 
-.info__inner {
+.pic__inner {
   display: flex;
-  flex-direction: column;
-  position: relative;
-}
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-dark);
+  border-radius: 16px;
+  margin-bottom: 8px;
 
-.info__title {
-  margin-bottom: 17.5px;
+  & img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+  }
 }
 
 .info__description {
-  padding-bottom: 16px;
   font-size: var(--font-1);
   letter-spacing: 1px;
   line-height: 1.5;
@@ -176,6 +195,7 @@
   width: min-content;
   display: table-cell;
   padding-right: 20px;
+  font-size: var(--font-1);
 }
 
 .sidebar__section {
@@ -207,7 +227,7 @@
   display: block;
   break-inside: auto;
   margin-bottom: 14px;
-  font-size: 15px;
+  font-size: var(--font-1);
 
   &:last-child {
     margin-bottom: 0;
@@ -378,7 +398,14 @@
 
   .resume__header {
     flex-direction: column;
+    align-items: center;
     margin-bottom: 30px;
+    gap: 16px;
+  }
+
+  .header__pic {
+    width: 100%;
+    padding-inline: 20px;
   }
 
   .header__contacts {
@@ -389,9 +416,7 @@
 
   .contacts__info {
     width: auto;
-    flex-flow: wrap;
-    justify-content: center;
-    gap: 10px;
+    gap: 4px;
   }
 
   .header__info {
@@ -419,7 +444,7 @@
   .body__sidebar {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 260px);
+    grid-template-rows: repeat(3, 270px);
     column-gap: 20px;
     width: 90%;
     max-width: 100%;
@@ -440,24 +465,26 @@
     grid-column: 1;
     padding-right: 10px;
     border-right: 1px solid var(--color-dark) !important;
+    border-bottom: 1px solid var(--color-dark) !important;
   }
 
   .language {
     grid-row: 3;
-    grid-column: 1;
-    border-right: 1px solid var(--color-dark) !important;
+    grid-column: 2;
+    margin-top: 60px;
   }
 
   .traits {
     grid-row: 2;
     grid-column: 2;
+    margin-top: 70px;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--color-dark) !important;
   }
 
   .hobbies {
     grid-row: 3;
-    grid-column: 2;
+    grid-column: 1;
   }
 
   .birth {

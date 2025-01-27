@@ -24,13 +24,18 @@
 }
 
 .header__contacts {
-  display: flex;
+  display: flex; 
   flex-direction: column;
-  align-items: center;
   position: relative;
-  width: 45%;
-  padding-right: 23px;
-  padding-left: 64px;
+  width: 55%;
+  padding-left: 23px;
+  padding-right: 64px;
+  border-left: 1px solid var(--color-dark);
+  font-size: var(--font-1);
+
+  & a {
+    font-size: var(--font-1);
+  }
 }
 
 .contacts__name {
@@ -114,6 +119,15 @@
   height: 18px;
 }
 
+.cake {
+  width: 18px;
+}
+
+.cake svg {
+  width: 24px;
+  height: 24px;
+}
+
 .phone {
   top: 2px;
 }
@@ -134,28 +148,32 @@
   height: 17.5px;
 }
 
-.header__info {
+.header__pic {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 55%;
-  padding-left: 23px;
-  padding-right: 64px;
-  border-left: 1px solid var(--color-dark);
+  width: 40%;
+  padding-right: 23px;
+  padding-left: 64px;
 }
 
-.info__inner {
+.pic__inner {
   display: flex;
-  flex-direction: column;
-  position: relative;
-}
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-dark);
+  border-radius: 16px;
 
-.info__title {
-  margin-bottom: 17.5px;
+  & img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+  }
 }
 
 .info__description {
-  padding-bottom: 16px;
   font-size: var(--font-1);
   letter-spacing: 1px;
   line-height: 1.5;
@@ -210,7 +228,11 @@
   display: block;
   break-inside: auto;
   margin-bottom: 14px;
-  font-size: 15px;
+  font-size: var(--font-1);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .skills-item p,
@@ -231,6 +253,10 @@
 .birth__description {
   width: 100%;
   margin-bottom: 23.375px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .birth__description h3 {
@@ -250,6 +276,7 @@
   padding-left: 29px;
   direction: ltr;
   max-width: 631px;
+  border-left: 1px solid var(--color-dark);
 }
 
 .body__section {
@@ -323,7 +350,7 @@
     padding-left: 30px;
   }
 
-  .header__info {
+  .header__pic {
     padding-right: 30px;
   }
 
@@ -363,7 +390,7 @@
     gap: 10px;
   }
 
-  .header__info {
+  .header__pic {
     width: 100%;
     border: none;
     padding-inline: 20px;
