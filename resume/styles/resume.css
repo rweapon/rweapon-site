@@ -24,7 +24,7 @@
 }
 
 .header__contacts {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 55%;
@@ -83,6 +83,7 @@
 .contacts__info {
   display: flex;
   flex-direction: column;
+  gap: 12px;
   margin-top: 21px;
   width: 100%;
 }
@@ -90,7 +91,7 @@
 .contacts__info-item {
   display: flex;
   align-items: center;
-  margin-bottom: 4.6px;
+  gap: 8px;
 }
 
 .contacts__info-link {
@@ -100,52 +101,17 @@
 .contacts__info-img {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  top: 5.8px;
-  margin-right: 9.3px;
-  margin-left: 1px;
-  width: 17.5px;
+  justify-content: center;
+  width: 20px;
+  min-width: 20px;
 }
 
 .contacts__info-img svg {
   fill: var(--color-dark);
   stroke: none;
-  width: 18.7px;
-  height: 14px;
-}
-
-.tg svg {
-  width: 18px;
-  height: 18px;
-}
-
-.cake {
-  width: 18px;
-}
-
-.cake svg {
-  width: 24px;
-  height: 24px;
-}
-
-.phone {
-  top: 2px;
-}
-
-.phone svg {
-  transform: rotate(-100deg);
-  width: 16px;
-  height: 15px;
-}
-
-.pinpoint {
-  top: 2.3px;
-  width: 17.5px;
-}
-
-.pinpoint svg {
-  width: 12.8px;
-  height: 17.5px;
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
 }
 
 .header__pic {
